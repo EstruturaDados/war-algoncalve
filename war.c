@@ -34,7 +34,62 @@
 int main() {
 
 
-//TESTE COMMIT 2 
+#include <stdio.h>
+#include <string.h>
+
+
+ //cria a estrutura de territorios: início.
+   typedef struct {
+                    char nome [50];
+                    char cor [10];
+                    int tropas;
+   } territorio;
+   //criar estrutura: fim.
+
+int main()
+
+{
+    //definindo o numero de terrtorios usando vetor.
+    territorio vetorTer[2];
+
+    //declarando variavel contador.
+    int cont =0;
+
+    //laço para obter os dados.
+    for(cont=1;cont<=2;cont++){
+    printf("============== W A R ============ \n \n");
+    //obter nome
+    printf(" DIGITE O NOME DO TERRITORIO:\n");
+    fgets(vetorTer[cont].nome, 50, stdin);
+    printf("O NOME DEFINIDO FOI: %s \n \n ",vetorTer[cont].nome);
+
+    //obter cor
+    printf("DIGITE A COR DO TERRITORIO:\n");
+    fgets(vetorTer[cont].cor, 10, stdin);
+    printf("A COR DEFINIDA FOI: %s \n ",vetorTer[cont].cor);
+
+    //obter numero tropas
+    fflush(stdin);
+    printf("DIGITE O NUMERO DE TROPAS NO TERRITORIO:\n");
+    scanf(" %d", &vetorTer[cont].tropas);
+    printf("O NUMERO DE TROPAS DEFINIDO FOI: %d \n \n \n ",vetorTer[cont].tropas);
+    fflush(stdin);
+    //fim do laço dados obtidos.
+    }
+    //inicar exibicao dos dados dos territorios
+    printf("======================= W A R ===================== \n \n");
+    printf(" ============== TERRITORIOS DEFINIDOS!!!============ \n \n");
+    for(cont=1;cont<=2;cont++){
+    printf("TERRITORIO {%d}:\n NOME: %s COR: %s COM %d TROPAS\n \n",cont,vetorTer[cont].nome, vetorTer[cont].cor, vetorTer[cont].tropas);
+
+    //fim do laço for  exibir dados
+    }
+
+
+
+    return 0;
+}
+
 
 
 
