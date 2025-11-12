@@ -91,7 +91,7 @@ int main()
                     //obter nome
                         printf("DIGITE O NOME DO TERRITORIO:\n\n");
                         fflush(stdin);
-                        fgets(vetorTer[cont].nome, 30, stdin);
+                        fgets(vetorTer[cont].nome,30,stdin);
                         printf("O NOME DEFINIDO FOI: %s \n \n",vetorTer[cont].nome);
 
                     //obter cor
