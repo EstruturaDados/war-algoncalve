@@ -31,28 +31,112 @@
 
 // --- Função Principal (main) ---
 // Função principal que orquestra o fluxo do jogo, chamando as outras funções em ordem.
-int main() {
-    // 1. Configuração Inicial (Setup):
-    // - Define o locale para português.
-    // - Inicializa a semente para geração de números aleatórios com base no tempo atual.
-    // - Aloca a memória para o mapa do mundo e verifica se a alocação foi bem-sucedida.
-    // - Preenche os territórios com seus dados iniciais (tropas, donos, etc.).
-    // - Define a cor do jogador e sorteia sua missão secreta.
 
-    // 2. Laço Principal do Jogo (Game Loop):
-    // - Roda em um loop 'do-while' que continua até o jogador sair (opção 0) ou vencer.
-    // - A cada iteração, exibe o mapa, a missão e o menu de ações.
-    // - Lê a escolha do jogador e usa um 'switch' para chamar a função apropriada:
-    //   - Opção 1: Inicia a fase de ataque.
-    //   - Opção 2: Verifica se a condição de vitória foi alcançada e informa o jogador.
-    //   - Opção 0: Encerra o jogo.
-    // - Pausa a execução para que o jogador possa ler os resultados antes da próxima rodada.
+//============================================
+//============================================
+//inicio do código
 
-    // 3. Limpeza:
-    // - Ao final do jogo, libera a memória alocada para o mapa para evitar vazamentos de memória.
 
+#include <stdio.h>
+#include <string.h>
+
+
+ //cria a estrutura de territorios: início.
+   typedef struct {
+                    char nome [30];
+                    char cor [10];
+                    int tropas;
+   } territorio;
+   //criar estrutura: fim.
+   int cont = 0;
+
+int main()
+
+{
+    //criar o vetor
+    territorio vetorTer[5];
+    //vetor criado
+
+    int escolha=0;
+    int cont =0;
+
+    do{
+    escolha=0;
+    printf("============== W A R ============ \n \n");
+    printf("================================= \n \n");
+    printf("============== MENU ============= \n \n \n");
+    printf("==> 1) APRESENTAR TERRITÓRIOS:\n");
+    printf("==> 2) INCLUIR TERRITÓRIOS:\n");
+    printf("==> 3) ENCERRAR:\n");
+
+    fflush(stdin);
+    scanf("%d", &escolha);
+    switch(escolha){
+                case(1):
+                     //inicar exibicao dos dados dos territorios
+                        printf("======================= W A R ===================== \n \n");
+                        printf(" ============== TERRITORIOS DEFINIDOS!!!============ \n \n");
+                        for(cont=1;cont<=5;cont++){
+                        printf("TERRITORIO {%d}:\n NOME: %s COR: %s COM %d TROPAS\n \n",cont,vetorTer[cont].nome, vetorTer[cont].cor, vetorTer[cont].tropas);
+                                                  }
+                        break;
+
+                     //fim do laço for  exibir dados
+                case(2):                       
+                        cont=1;
+                        while(cont<=5){
+                    //laço para obter os dados.
+                        for(cont=1;cont<=5;cont++){
+                        printf("============== W A R ============\n\n");
+                    //obter nome
+                        printf("DIGITE O NOME DO TERRITORIO:\n\n");
+                        fflush(stdin);
+                        fgets(vetorTer[cont].nome, 30, stdin);
+                        printf("O NOME DEFINIDO FOI: %s \n \n",vetorTer[cont].nome);
+
+                    //obter cor
+                        printf("DIGITE A COR DO TERRITORIO:\n");
+                        fgets(vetorTer[cont].cor, 10, stdin);
+                        printf("A COR DEFINIDA FOI: %s \n ",vetorTer[cont].cor);
+
+                    //obter numero tropas
+                        fflush(stdin);
+                        printf("DIGITE O NUMERO DE TROPAS NO TERRITORIO:\n");
+                        scanf(" %d", &vetorTer[cont].tropas);
+                        printf("O NUMERO DE TROPAS DEFINIDO FOI: %d \n \n \n ",vetorTer[cont].tropas);
+                        fflush(stdin);
+                        }
+
+                        break;
+                    //fim do laço dados obtidos.
+    }
+
+
+
+    }
+    }while(escolha!=3);
     return 0;
-}
+    }
+
+
+
+
+
+
+
+
+//fim do codigo
+//====================================
+//====================================
+
+
+
+
+
+
+
+
+
 
 // --- Implementação das Funções ---
 
