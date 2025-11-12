@@ -75,13 +75,13 @@ int main()
                 case(1):
                      //inicar exibicao dos dados dos territorios
                         printf("======================= W A R ===================== \n \n");
-                        printf(" ============== TERRITORIOS DEFINIDOS!!!============ \n \n");
+                        printf("============== TERRITORIOS DEFINIDOS!!!============ \n \n");
                         for(cont=1;cont<=5;cont++){
                         printf("TERRITORIO {%d}:\n NOME: %s COR: %s COM %d TROPAS\n \n",cont,vetorTer[cont].nome, vetorTer[cont].cor, vetorTer[cont].tropas);
-                                                  }
+                        }
                         break;
-
                      //fim do laço for  exibir dados
+
                 case(2):                       
                         cont=1;
                         while(cont<=5){
@@ -91,13 +91,16 @@ int main()
                     //obter nome
                         printf("DIGITE O NOME DO TERRITORIO:\n\n");
                         fflush(stdin);
-                        fgets(vetorTer[cont].nome,30,stdin);
+                        //fgets(vetorTer[cont].nome,30,stdin);
+                        scanf(" %s",&vetorTer[cont].nome);
                         printf("O NOME DEFINIDO FOI: %s \n \n",vetorTer[cont].nome);
 
                     //obter cor
                         printf("DIGITE A COR DO TERRITORIO:\n");
-                        fgets(vetorTer[cont].cor, 10, stdin);
-                        printf("A COR DEFINIDA FOI: %s \n ",vetorTer[cont].cor);
+                        fflush(stdin);
+                        //fgets(vetorTer[cont].cor, 10, stdin);
+                        scanf(" %s",&vetorTer[cont].cor);
+                        printf("A COR DEFINIDA FOI: %s \n\n ",vetorTer[cont].cor);
 
                     //obter numero tropas
                         fflush(stdin);
