@@ -1,0 +1,238 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+int escolha, cont;
+
+//cria a estrutura de territorios: início.
+   typedef struct {
+                    char nome [30];
+                    char cor [10];
+                    int tropas;
+   } territorio;
+
+
+/*
+void atacar(){
+
+    do{
+    char* ataque = (char*)calloc(1,sizeof(char));
+    char* defesa = (char*)calloc(1,sizeof(char));
+
+            //MENU DE BATALHA
+    escolha=0;
+    printf("============== W A R ============ \n \n");
+    printf("================================= \n \n");
+    printf("========MENU DE BATALHA========== \n \n \n");
+    printf("==> 1) SELECIONAR TERRITORIO DE ATACANTE:\n");
+    printf("==> 2) SELECIONAR TERRITORIO DE DEFENSOR:\n");
+    printf("==> 3) ATACAR!!! \n");
+    printf("==> 4) MENU PRINCIPAL:\n");
+            //FIM MENU
+
+    fflush(stdin);
+    scanf(" %d", &escolha);
+    switch(escolha){
+                case(1):
+                     //escolhe ataque
+                        printf("======================= W A R ===================== \n \n");
+                        printf(" QUAL EXERCITO VAI ATACAR? \n \n");
+                        fflush(stdin);
+                        scanf(" %s", &ataque);
+                        printf("VOCE SELECIONOU O EXERCITO %s PARA ATACAR!\n", &ataque);
+                        break;
+                     //fim escolhe ataque
+                case(2):
+                        //escolhe defesa
+                        printf("======================= W A R ===================== \n \n");
+                        printf(" QUAL EXERCITO VAI DEFENDER? \n \n");
+                        fflush(stdin);
+                        scanf(" %s", &defesa);
+                        printf("\nVOCE SELECIONOU O EXERCITO %s PARA SE DEFENDER\n\n", &defesa);
+                        break;
+                     //fim escolhe defesa
+                case(3):
+                     //inicar exibicao dos dados dos territorios
+                        printf("======================= W A R ===================== \n \n");
+                        printf("===================== ATAQUE !!! ================== \n \n");
+                        srand(time(NULL));
+                        int dadoA= rand()%6+1;
+                        int dadoAA = dadoA;
+                        printf("Dado de ataque do EXERCITO %s: %d \n\n",ataque,dadoAA);
+                        printf("Digite ENTER para rolar o dado da DEFESA!!\n\n");
+                        int dadoB= rand()%6+1;
+                        int dadoBB = dadoB;
+                        printf("Dado de defesa do EXERCITO %s: %d \n\n",defesa,dadoBB);
+                        printf("ATAQUE ==> %d\n",dadoAA);
+                        printf("DEFESA ==> %d\n",dadoBB);
+                        if(dadoB >= dadoA){
+                            printf("VITORIA DA DEFESA ! ! !\n\n");
+                        }
+                        else{
+                            printf("VITORIA DO ATAQUE ! ! !\n\n");
+                        }
+
+                case(4):
+                    //retorna a função principal
+                        main();
+                        break;
+
+                        }
+
+
+
+                                                  }
+    while (escolha=!5);
+    atacar();
+    }
+*/
+
+
+
+int main()
+{
+    territorio* mapa = (territorio*)calloc(5, sizeof(territorio));
+
+
+    int escolha=0;
+    int cont=0;
+
+    do{
+    escolha=0;
+    printf("============== W A R ============ \n \n");
+    printf("================================= \n \n");
+    printf("============== MENU ============= \n \n \n");
+    printf("==> 1) APRESENTAR TERRITORIOS:\n");
+    printf("==> 2) INCLUIR TERRITORIOS:\n");
+    printf("==> 3) ATACAR ! ! !\n");
+    printf("==> 4) ENCERRAR:\n");
+
+    fflush(stdin);
+    scanf(" %d", &escolha);
+    switch(escolha){
+                case(1):
+                    //inicar exibicao dos dados dos territorios
+                        printf("======================= W A R ===================== \n \n");
+                        printf(" ============== TERRITORIOS DEFINIDOS!!!============ \n \n");
+                        for(cont=0;cont<=4;cont++){
+                        printf("TERRITORIO {%d}:\n NOME: %s COR: %s COM %d TROPAS\n \n",cont,mapa[cont].nome, mapa[cont].cor, mapa[cont].tropas);
+                                                  }
+                        main();
+                        break;
+
+                     //fim do laço for  exibir dados
+
+                case(2):
+                        cont=1;
+                        while(cont<=5){
+                    //laço para obter os dados.
+                        for(cont=0;cont<=4;cont++){
+                        printf("============== W A R ============\n\n");
+                    //obter nome
+                        printf("DIGITE O NOME DO TERRITORIO:\n");
+                        fflush(stdin);
+                        fgets(mapa[cont].nome,30, stdin);
+                        printf("O NOME DEFINIDO FOI: %s \n \n",mapa[cont].nome);
+
+                    //obter cor
+                        printf("DIGITE A COR DO TERRITORIO:\n");
+                        fgets(mapa[cont].cor, 10, stdin);
+                        printf("A COR DEFINIDA FOI: %s \n ",mapa[cont].cor);
+
+                    //obter numero tropas
+                        fflush(stdin);
+                        printf("DIGITE O NUMERO DE TROPAS NO TERRITORIO:\n");
+                        scanf(" %d", mapa[cont].tropas);
+                        printf("O NUMERO DE TROPAS DEFINIDO FOI: %d \n \n \n ",mapa[cont].tropas);
+                        fflush(stdin);
+                        }
+                        main();
+                        break;
+                    //fim do laço dados obtidos.
+
+                case(3):
+                     do{
+                        char* ataque = (char*)calloc(1,sizeof(char));
+                        char* defesa = (char*)calloc(1,sizeof(char));
+
+            //MENU DE BATALHA
+                        escolha=0;
+                        printf("============== W A R ============ \n \n");
+                        printf("================================= \n \n");
+                        printf("========MENU DE BATALHA========== \n \n \n");
+                        printf("==> 5) SELECIONAR TERRITORIO DE ATACANTE:\n");
+                        printf("==> 6) SELECIONAR TERRITORIO DE DEFENSOR:\n");
+                        printf("==> 7) ATACAR!!! \n");
+                        printf("==> 4) REINICIAR:\n");
+            //FIM MENU
+
+                        fflush(stdin);
+                        scanf(" %d", &escolha);
+                        switch(escolha){
+                            case(5):
+                     //escolhe ataque
+                                printf("======================= W A R ===================== \n \n");
+                                printf(" QUAL EXERCITO VAI ATACAR? \n \n");
+                                fflush(stdin);
+                                scanf(" %s", &ataque);
+                                printf("VOCE SELECIONOU O EXERCITO %s PARA ATACAR!\n", &ataque);
+                                break;
+                     //fim escolhe ataque
+                            case(6):
+                        //escolhe defesa
+                                printf("======================= W A R ===================== \n \n");
+                                printf("QUAL EXERCITO VAI DEFENDER? \n \n");
+                                fflush(stdin);
+                                scanf(" %s", &defesa);
+                                printf("VOCE SELECIONOU O EXERCITO %s PARA SE DEFENDER\n\n", &defesa);
+                                break;
+                     //fim escolhe defesa
+
+                            case(7):
+                     //inicar exibicao dos dados dos territorios
+                                printf("======================= W A R ===================== \n \n");
+                                printf("===================== ATAQUE !!! ================== \n \n");
+                                srand(time(NULL));
+                                int dadoA= rand()%6+1;
+                                int dadoAA = dadoA;
+                                printf("Dado de ataque do EXERCITO %s: %d \n\n",ataque,dadoAA);
+                                printf("Digite ENTER para rolar o dado da DEFESA!!\n\n");
+                                int dadoB= rand()%6+1;
+                                int dadoBB = dadoB;
+                                printf("Dado de defesa do EXERCITO %s: %d \n\n",defesa,dadoBB);
+                                printf("ATAQUE ==> %d\n",dadoAA);
+                                printf("DEFESA ==> %d\n",dadoBB);
+                                if(dadoB >= dadoA){
+                                    printf("VITORIA DA DEFESA ! ! !\n\n");
+                                                    }
+                                else{
+                                    printf("VITORIA DO ATAQUE ! ! !\n\n");
+                                    }
+
+                            case(4):
+                        //retorna a função principal
+                                main();
+                                break;
+
+                                }
+
+
+
+                                                  }
+                        while (escolha=!4);
+                        break;
+
+    }
+
+    }
+while(escolha!=4);
+return 0;
+
+}
+while(escolha!=4);
+return 0;
+}
+
+
+
